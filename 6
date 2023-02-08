@@ -1,12 +1,14 @@
-include<stdio.h>
-struct priority_scheduling {
+#include<stdio.h>
+struct priority_scheduling 
+{
   char process_name;
   int burst_time;
   int waiting_time;
   int turn_around_time;
   int priority;
 };
-int main() {
+int main() 
+{
   int number_of_process;
   int total = 0;
   struct priority_scheduling temp_process;
@@ -18,7 +20,8 @@ int main() {
   scanf("%d", & number_of_process);
   struct priority_scheduling process[number_of_process];
   printf("\nPlease Enter the  Burst Time and Priority of each process:\n");
-  for (int i = 0; i < number_of_process; i++) {
+  for (int i = 0; i < number_of_process; i++) 
+  {
     process[i].process_name = (char) ASCII_number;
     printf("\nEnter the details of the process %c \n", process[i].process_name);
     printf("Enter the burst time: ");
@@ -27,9 +30,11 @@ int main() {
     scanf("%d", & process[i].priority);
     ASCII_number++;
   }
-  for (int i = 0; i < number_of_process; i++) {
+  for (int i = 0; i < number_of_process; i++) 
+  {
     position = i;
-    for (int j = i + 1; j < number_of_process; j++) {
+    for (int j = i + 1; j < number_of_process; j++) 
+    {
       if (process[j].priority > process[position].priority)
         position = j;
     } 
@@ -38,9 +43,11 @@ int main() {
     process[position] = temp_process;
   }
   process[0].waiting_time = 0;
-  for (int i = 1; i < number_of_process; i++) {
+  for (int i = 1; i < number_of_process; i++) 
+  {
     process[i].waiting_time = 0;
-    for (int j = 0; j < i; j++) {
+    for (int j = 0; j < i; j++) 
+    {
       process[i].waiting_time += process[j].burst_time;
     }           
     total += process[i].waiting_time;
