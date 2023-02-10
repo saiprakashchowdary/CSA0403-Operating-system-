@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<dirent.h>
-int main() {
+int main() 
+{
     char fn[10], pat[10], temp[200];
     FILE *fp;
     printf("\n Enter file name : ");
